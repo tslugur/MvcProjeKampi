@@ -15,5 +15,8 @@ namespace EntityLayer.Concrete
         public string WriterMail { get; set; }
         public string WriterPassword { get; set; }
 
+        //Yazar -Başlık İlişkisi
+        public ICollection<Heading> Headings { get; set; }
+
     }
 }

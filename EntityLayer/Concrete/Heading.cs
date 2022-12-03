@@ -19,5 +19,8 @@ namespace EntityLayer.Concrete
         //Heading -Content İlişkisi
         public ICollection<Content> Contents { get; set; }
 
+        //Yazar -Başlık İlişkisi
+        public int WriterID { get; set; }
+        public virtual Writer Writer { get; set; }
     }
 }
