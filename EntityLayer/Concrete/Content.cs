@@ -21,7 +21,8 @@ namespace EntityLayer.Concrete
         public virtual Heading Heading { get; set; }
 
         //Yazar -Content İlişkisi
-        public int WriterID { get; set; }
+        //? nullable type yani writer ıd boş olabilir
+        public int? WriterID { get; set; }
         public virtual Writer Writer { get; set; }
     }
 }
