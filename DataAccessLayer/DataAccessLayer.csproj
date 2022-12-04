@@ -61,6 +61,32 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfContactDal.cs" />
+    <Compile Include="EntityFramework\EfContentDal.cs" />
+    <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Migrations\202212041315239_mig_WriterEdit.cs" />
+    <Compile Include="Migrations\202212041315239_mig_WriterEdit.designer.cs">
+      <DependentUpon>202212041315239_mig_WriterEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212041347527_mig_WriterImageSize.cs" />
+    <Compile Include="Migrations\202212041347527_mig_WriterImageSize.designer.cs">
+      <DependentUpon>202212041347527_mig_WriterImageSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212041355240_mig_WriterAdStatus.cs" />
+    <Compile Include="Migrations\202212041355240_mig_WriterAdStatus.designer.cs">
+      <DependentUpon>202212041355240_mig_WriterAdStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212041416388_mig_ContentStatusAdd.cs" />
+    <Compile Include="Migrations\202212041416388_mig_ContentStatusAdd.designer.cs">
+      <DependentUpon>202212041416388_mig_ContentStatusAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212041418253_mig_HeadingStatusAdd.cs" />
+    <Compile Include="Migrations\202212041418253_mig_HeadingStatusAdd.designer.cs">
+      <DependentUpon>202212041418253_mig_HeadingStatusAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +99,23 @@
       <Project>{17F3C06E-86D6-40C1-A3BF-5EFFF6F27B92}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202212041315239_mig_WriterEdit.resx">
+      <DependentUpon>202212041315239_mig_WriterEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212041347527_mig_WriterImageSize.resx">
+      <DependentUpon>202212041347527_mig_WriterImageSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212041355240_mig_WriterAdStatus.resx">
+      <DependentUpon>202212041355240_mig_WriterAdStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212041416388_mig_ContentStatusAdd.resx">
+      <DependentUpon>202212041416388_mig_ContentStatusAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212041418253_mig_HeadingStatusAdd.resx">
+      <DependentUpon>202212041418253_mig_HeadingStatusAdd.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

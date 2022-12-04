@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*Görev 2*@
+<br />
+<h2>İstatistikler</h2>
+<html>
+<head>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="small-box bg-success">
+                <div class="inner" style="text-align: center">
+                    <br />
+                    <h3><sup style="font-size: 40px">@ViewBag.totalNumberOfCategories</sup></h3>
+                    <sup style="font-size: 18px">Toplam Kategori Sayısı</sup>
+                </div>  <a href="#" class="small-box-footer"></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="small-box bg-red">
+                <div class="inner" style="text-align: center">
+                    <br />
+                    <h3><sup style="font-size: 40px">@ViewBag.softwareCategoryTitleNumber</sup></h3>
+                    <sup style="font-size: 18px">Yazılım Kategorisi Başlık Sayısı</sup>
+                </div><a href="#" class="small-box-footer"></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="small-box bg-purple">
+                <div class="inner" style="text-align: center">
+                    <br />
+                    <h3><sup style="font-size: 40px">@ViewBag.writerNameSortByA</sup></h3>
+                    <sup style="font-size: 18px">Yazar Adında "A" Harfi Geçen Sayısı</sup>
+                </div><a href="#" class="small-box-footer"></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="small-box bg-blue">
+                <div class="inner" style="text-align: center">
+                    <br />
+                    <h3><sup style="font-size: 40px">@ViewBag.categoryNameWithTheMostTitles</sup></h3>
+                    <sup style="font-size: 18px">En Fazla Başlığa Sahip Kategori Sayısı</sup>
+                </div> <a href="#" class="small-box-footer"></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="small-box bg-orange">
+                <div class="inner" style="text-align: center">
+                    <br />
+                    <h3><sup style="font-size: 40px">@ViewBag.activeCategories</sup></h3>
+                    <sup style="font-size: 18px">Durumu True Olan Kategori Sayısı</sup>
+                </div><a href="#" class="small-box-footer"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
