@@ -21,6 +21,7 @@ namespace MvcProjeKampi.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         CategoryValidator categoryValidator = new CategoryValidator();
 
+      
         public ActionResult Index()
         {
 

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -54,5 +55,8 @@ namespace DataAccessLayer.Concrete.Repositories
             updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
         }
+      
+
+   
     }
 }

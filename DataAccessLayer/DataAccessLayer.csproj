@@ -56,18 +56,26 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfSkillDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202212041315239_mig_WriterEdit.cs" />
     <Compile Include="Migrations\202212041315239_mig_WriterEdit.designer.cs">
@@ -96,6 +104,22 @@
     <Compile Include="Migrations\202212061855117_mig_message_readdraf_add.cs" />
     <Compile Include="Migrations\202212061855117_mig_message_readdraf_add.designer.cs">
       <DependentUpon>202212061855117_mig_message_readdraf_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212071753211_mig_addimage_file.cs" />
+    <Compile Include="Migrations\202212071753211_mig_addimage_file.designer.cs">
+      <DependentUpon>202212071753211_mig_addimage_file.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212071815373_mig_add_admin.cs" />
+    <Compile Include="Migrations\202212071815373_mig_add_admin.designer.cs">
+      <DependentUpon>202212071815373_mig_add_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212091922199_mig_adminpasswordadd.cs" />
+    <Compile Include="Migrations\202212091922199_mig_adminpasswordadd.designer.cs">
+      <DependentUpon>202212091922199_mig_adminpasswordadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212092014050_mig-skillandtalents.cs" />
+    <Compile Include="Migrations\202212092014050_mig-skillandtalents.designer.cs">
+      <DependentUpon>202212092014050_mig-skillandtalents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,6 +155,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212061855117_mig_message_readdraf_add.resx">
       <DependentUpon>202212061855117_mig_message_readdraf_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212071753211_mig_addimage_file.resx">
+      <DependentUpon>202212071753211_mig_addimage_file.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212071815373_mig_add_admin.resx">
+      <DependentUpon>202212071815373_mig_add_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212091922199_mig_adminpasswordadd.resx">
+      <DependentUpon>202212091922199_mig_adminpasswordadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212092014050_mig-skillandtalents.resx">
+      <DependentUpon>202212092014050_mig-skillandtalents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
