@@ -11,6 +11,7 @@
 ![alt text](https://github.com/ugurtasli/MvcProjeKampi/blob/master/doc/6.png?raw=true)
 ![alt text](https://github.com/ugurtasli/MvcProjeKampi/blob/master/doc/7.png?raw=true)
 100 Derslik Seri Bitmiştir.
+- [x] 4.Görev
 bilgiislem.antikkapi.com.tr adresinden vitrini görebilirsiniz fakat hostingde sql veri tabanım olmadığından veri tabanını yüklüyemedim.
 Admin Giriş Bilgileri:
 admin@mail.com
