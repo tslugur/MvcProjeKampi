@@ -19,15 +19,17 @@ namespace MvcProjeKampi.Controllers
 
         MessageValidator messagevalidators = new MessageValidator();
         // GET: Message
-        public ActionResult Inbox(string p)
+        public ActionResult Inbox()
         {
-            var messageinlist = mm.GetListInbox(p);
+            var mail = (string)Session["AdminUserName"];
+            var messageinlist = mm.GetListInbox(mail);
             return View(messageinlist);
         }
 
-        public ActionResult Sendbox(string p)
+        public ActionResult Sendbox()
         {
-            var messagesendlist = mm.GetSendbox(p);
+            var mail = (string)Session["AdminUserName"];
+            var messagesendlist = mm.GetSendbox(mail);
             return View(messagesendlist);
         }
 
@@ -47,8 +49,9 @@ namespace MvcProjeKampi.Controllers
                 results = messagevalidators.Validate(p);
                 if (results.IsValid)
                 {
+                    string userEmail = (string)Session["AdminUserName"];
                     p.MessageDate = DateTime.Now;
-                    p.SenderMail = "admin@gmail.com";
+                    p.SenderMail = userEmail;
                     p.isDraft = true;
                     mm.MessageAddBL(p);
                     return RedirectToAction("Draft");
@@ -66,8 +69,9 @@ namespace MvcProjeKampi.Controllers
                 results = messagevalidators.Validate(p);
                 if (results.IsValid)
                 {
+                    string userEmail = (string)Session["AdminUserName"];
                     p.MessageDate = DateTime.Now;
-                    p.SenderMail = "admin@gmail.com";
+                    p.SenderMail = userEmail;
                     p.isDraft = true;
                     mm.MessageAddBL(p);
                     return RedirectToAction("SendBox");
@@ -99,11 +103,11 @@ namespace MvcProjeKampi.Controllers
             return View(values);
         }
 
-        public ActionResult Draft(string p)
+        public ActionResult Draft()
         {
-            var sendList = mm.GetSendbox(p);
-            var draftList = sendList.FindAll(x => x.isDraft == true);
-            return View(draftList);
+            var mail = (string)Session["AdminUserName"];
+            var deger = mm.GetListDraft(mail);
+            return View(deger);
         }
         public ActionResult GetDraftMessageDetails(int id)
         {
@@ -113,13 +117,15 @@ namespace MvcProjeKampi.Controllers
         }
         public ActionResult Read()
         {
-            var deger = mm.GetReadList();
+            var mail = (string)Session["AdminUserName"];
+            var deger = mm.GetReadList(mail);
             return View(deger);
         }
 
         public ActionResult UnRead()
         {
-            var deger = mm.GetUnReadList();
+            var mail = (string)Session["AdminUserName"];
+            var deger = mm.GetUnReadList(mail);
             return View(deger);
         }
     }

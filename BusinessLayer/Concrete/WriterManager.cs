@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace BusinessLayer.Concrete
 
         public void WriterAddBL(Writer writer)
         {
+          
             _writerDal.Insert(writer);
         }
 

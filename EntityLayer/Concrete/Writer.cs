@@ -21,10 +21,13 @@ namespace EntityLayer.Concrete
         public string WriterAbout { get; set; }
         [StringLength(50)]
         public string WriterMail { get; set; }
-        [StringLength(20)]
-        public string WriterPassword { get; set; }
+        public byte[] WriterPasswordHash { get; set; }
+        public byte[] WriterPasswordSalt { get; set; }
         [StringLength(50)]
         public string WriterTitle { get; set; }
+
+        public int? RoleId { get; set; }
+        public virtual Role Role { get; set; }
 
         public bool WriterStatus { get; set; }
 

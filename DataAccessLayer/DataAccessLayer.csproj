@@ -60,11 +60,11 @@
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
     <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
-    <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
     <Compile Include="EntityFramework\EfAdminDal.cs" />
@@ -74,6 +74,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfRoleDal.cs" />
     <Compile Include="EntityFramework\EfSkillDal.cs" />
     <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
@@ -121,6 +122,46 @@
     <Compile Include="Migrations\202212092014050_mig-skillandtalents.designer.cs">
       <DependentUpon>202212092014050_mig-skillandtalents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212101151181_mig_writerrole.cs" />
+    <Compile Include="Migrations\202212101151181_mig_writerrole.designer.cs">
+      <DependentUpon>202212101151181_mig_writerrole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101523461_mig_adminstatus.cs" />
+    <Compile Include="Migrations\202212101523461_mig_adminstatus.designer.cs">
+      <DependentUpon>202212101523461_mig_adminstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101533298_mig_add_role.cs" />
+    <Compile Include="Migrations\202212101533298_mig_add_role.designer.cs">
+      <DependentUpon>202212101533298_mig_add_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101600175_mig_adminpassword_hash.cs" />
+    <Compile Include="Migrations\202212101600175_mig_adminpassword_hash.designer.cs">
+      <DependentUpon>202212101600175_mig_adminpassword_hash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101612481_mig_adminusername_byte.cs" />
+    <Compile Include="Migrations\202212101612481_mig_adminusername_byte.designer.cs">
+      <DependentUpon>202212101612481_mig_adminusername_byte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101613557_mig_adminusername_byte2.cs" />
+    <Compile Include="Migrations\202212101613557_mig_adminusername_byte2.designer.cs">
+      <DependentUpon>202212101613557_mig_adminusername_byte2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101642155_mig_adminnameadd.cs" />
+    <Compile Include="Migrations\202212101642155_mig_adminnameadd.designer.cs">
+      <DependentUpon>202212101642155_mig_adminnameadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101658371_mig_writerpasswordhash.cs" />
+    <Compile Include="Migrations\202212101658371_mig_writerpasswordhash.designer.cs">
+      <DependentUpon>202212101658371_mig_writerpasswordhash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101907454_mig_writerrole1.cs" />
+    <Compile Include="Migrations\202212101907454_mig_writerrole1.designer.cs">
+      <DependentUpon>202212101907454_mig_writerrole1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212101947176_mig_rolewriteradd.cs" />
+    <Compile Include="Migrations\202212101947176_mig_rolewriteradd.designer.cs">
+      <DependentUpon>202212101947176_mig_rolewriteradd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -167,6 +208,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212092014050_mig-skillandtalents.resx">
       <DependentUpon>202212092014050_mig-skillandtalents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101151181_mig_writerrole.resx">
+      <DependentUpon>202212101151181_mig_writerrole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101523461_mig_adminstatus.resx">
+      <DependentUpon>202212101523461_mig_adminstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101533298_mig_add_role.resx">
+      <DependentUpon>202212101533298_mig_add_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101600175_mig_adminpassword_hash.resx">
+      <DependentUpon>202212101600175_mig_adminpassword_hash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101612481_mig_adminusername_byte.resx">
+      <DependentUpon>202212101612481_mig_adminusername_byte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101613557_mig_adminusername_byte2.resx">
+      <DependentUpon>202212101613557_mig_adminusername_byte2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101642155_mig_adminnameadd.resx">
+      <DependentUpon>202212101642155_mig_adminnameadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101658371_mig_writerpasswordhash.resx">
+      <DependentUpon>202212101658371_mig_writerpasswordhash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101907454_mig_writerrole1.resx">
+      <DependentUpon>202212101907454_mig_writerrole1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212101947176_mig_rolewriteradd.resx">
+      <DependentUpon>202212101947176_mig_rolewriteradd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

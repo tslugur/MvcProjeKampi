@@ -1,16 +1,17 @@
 ﻿@model EntityLayer.Concrete.Writer
+
 @{
     ViewBag.Title = "EditWriter";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
 <h2>Yazar Düzenleme Sayfası</h2>
-@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
+@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
-        @Html.Label("Yazar ID")
-        @Html.TextBoxFor(x => x.WriterID, new { @class = "form-control" })
-        <br />
+
+        @Html.HiddenFor(x => x.WriterID, new { @class = "form-control" })
+
         @Html.Label("Yazar Adı")
         @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
@@ -22,9 +23,13 @@
         @Html.Label("Yazar Mail")
         @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+      
+       
+        @Html.HiddenFor(x => x.WriterPasswordHash, new { @class = "form-control" })
+
         <br />
         @Html.Label("Yazar Görsel Linki")
-        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+        <input type="file" name="WriterImage" class="form-control" />
         @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
         <br />
         @Html.Label("Yazar Ünvan")
@@ -34,6 +39,9 @@
         @Html.Label("Yazar Hakkında")
         @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar rolünü yazınız")
+        @Html.DropDownListFor(c => c.RoleId, (List<SelectListItem>)ViewBag.valuewriter, new { @class = "form-control" })
         <br />
 
         <button class="btn btn-info">Yazarı Güncelle</button>

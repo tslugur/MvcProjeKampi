@@ -23,24 +23,35 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox(string p)
+      
+
+        public List<Message> GetListDraft(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "ugur@mail.com");
+            return _messageDal.List(x => x.SenderMail == p).Where(y=>y.isDraft==true).ToList();
         }
 
-        public List<Message> GetReadList()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.MessageRead == true);
+            return _messageDal.List(x => x.ReceiverMail == p);
+        }
+
+     
+
+        public List<Message> GetReadList(string p)
+        {
+            return _messageDal.List(x => x.ReceiverMail == p).Where(y => y.MessageRead == true).ToList();
         }
 
         public List<Message> GetSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "nevin@mail.com");
+            return _messageDal.List(x => x.SenderMail == p);
         }
 
-        public List<Message> GetUnReadList()
+     
+
+        public List<Message> GetUnReadList(string p)
         {
-            return _messageDal.List(x => x.MessageRead == false);
+            return _messageDal.List(x => x.ReceiverMail == p).Where(y=>y.MessageRead==false).ToList();
         }
 
         public void MessageAddBL(Message message)

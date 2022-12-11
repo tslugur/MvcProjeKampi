@@ -1,43 +1,107 @@
 ﻿
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
+using MvcProjeKampi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
+        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()),
+          new WriterManager(new EfWriterDal()));
+    
         // GET: Login
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Admin p)
+        public ActionResult Index(AdminLoginDto adminDto)
         {
-            Context c = new Context();
-            var adminuserinfo = c.Admins.FirstOrDefault(x => x.AdminUserName == p.AdminUserName && x.AdminPassword == p.AdminPassword);
-            if (adminuserinfo!=null)
+
+            if (authService.AdminLogin(adminDto))
             {
-                FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
-                Session["AdminUserName"]=adminuserinfo.AdminUserName;   
-                return RedirectToAction("Index", "AdminCategory");
+                //yönlendrime işlemleri
+                FormsAuthentication.SetAuthCookie(adminDto.AdminUserName, false);
+                Session["AdminUsername"] = adminDto.AdminUserName;
+                return RedirectToAction("Index", "Heading");
             }
             else
             {
-                return RedirectToAction("Index");
+                //Hata Mesajı döndür
+                ViewData["ErrorMessage"] = "Kullanıcı Adı veya Parola Yanlış!";
+                return View();
             }
             //kullanıcı adı şifre yanlışsa bilgilendir
             //passwordu hasslar
             //mimariye taşı
             //Gelen kutusu okundu okunmadı /yapıldı
             //aktif yap pasif yap yapıldı
-        
+
         }
+        //Yazar Paneli
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+          
+            return View();
+        }
+        [HttpPost]
+        public ActionResult WriterLogIn(WriterLoginDto writerLoginDto)
+        {
+
+            var response = Request["g-recaptcha-response"];
+            const string secret = "6LfbKk8bAAAAANkMjzLC_iAGX45a_J8RUWe1XYeQ";
+            var client = new WebClient();
+            var reply =
+                client.DownloadString(
+                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResult>(reply);
+
+            if (authService.WriterLogin(writerLoginDto) && captchaResponse.Success)           
+            {
+                FormsAuthentication.SetAuthCookie(writerLoginDto.WriterMail, false);
+                Session["WriterMail"] = writerLoginDto.WriterMail;
+               
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+            else
+            {
+                ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
+                return View();
+            }
+        }
+
+
+
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            //Session.Abandon();
+            return RedirectToAction("HomePage", "Home");
+        }
+        public ActionResult WriterLogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("WriterLogin", "Login");
+        }
+
     }
-}
+    }

@@ -29,12 +29,12 @@ namespace MvcProjeKampi.Controllers
         {
             var contactList = cm.GetList();
             ViewBag.contactCount = contactList.Count();
-         
-            //ViewBag.draftCount = drafList.Count();
-            var deger5 = mm.GetReadList();
+
+            var mail = (string)Session["AdminUserName"];
+            var deger5 = mm.GetReadList(mail);
             ViewBag.sayi5 = deger5.Count();
 
-            var deger6 = mm.GetUnReadList();
+            var deger6 = mm.GetUnReadList(mail);
             ViewBag.sayi6 = deger6.Count();
 
             return PartialView();

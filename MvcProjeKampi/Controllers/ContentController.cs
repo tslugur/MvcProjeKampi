@@ -12,9 +12,17 @@ namespace MvcProjeKampi.Controllers
     {
         ContentManager cm = new ContentManager(new EfContentDal());
         // GET: Content
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult GetAllContent()
         {
             var values = cm.GetList();
+
+            return View(values);
+        }
+        [HttpPost]
+        public ActionResult GetAllContent(string searchKeyWord)
+        {
+            var values = cm.GetListBySearch(searchKeyWord);
 
             return View(values);
         }
@@ -23,5 +31,7 @@ namespace MvcProjeKampi.Controllers
             var contentvalues = cm.GetListByHeadingID(id);
             return View(contentvalues);
         }
+     
+    
     }
 }

@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Writer
+﻿@model EntityLayer.Dto.WriterLoginDto
 
 @{
     ViewBag.Title = "AddWriter";
@@ -26,7 +26,7 @@
         @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
         <br />
-        @Html.Label("Yazar Görsel Linki")
+        @Html.Label("Yazar Görsel")
         @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
         <br />
@@ -39,6 +39,9 @@
         @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
         <br />
 
+        @Html.Label("Yazar rolünü yazınız")
+        @Html.DropDownListFor(c => c.RoleId, (List<SelectListItem>)ViewBag.valuewriter, new { @class = "form-control" })
+        <br />
         <button class="btn btn-info">Yazarı Ekle</button>
     </div>
 }

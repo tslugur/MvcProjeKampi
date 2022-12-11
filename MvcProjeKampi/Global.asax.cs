@@ -12,6 +12,9 @@ namespace MvcProjeKampi
     {
         protected void Application_Start()
         {
+            //proje authorize
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
+            //proje authorize sonu
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
