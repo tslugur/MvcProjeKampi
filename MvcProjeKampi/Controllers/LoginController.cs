@@ -66,7 +66,7 @@ namespace MvcProjeKampi.Controllers
         {
 
             var response = Request["g-recaptcha-response"];
-            const string secret = "6LfbKk8bAAAAANkMjzLC_iAGX45a_J8RUWe1XYeQ";
+            const string secret = "6LfuH0gcAAAAAJJtGCmqJvJ3cMtHsI4RD6PAMowp";
             var client = new WebClient();
             var reply =
                 client.DownloadString(
